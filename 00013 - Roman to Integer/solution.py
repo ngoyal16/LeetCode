@@ -10,15 +10,18 @@ class Solution:
             "M": 1000
         }
         
-        arr = list(s[::-1])
+        arr = [symbol[c] for c in s]
+        
         n = len(arr)
-        sum = symbol[arr[0]]
+        sum = arr[n - 1]
         
-        for i in range(1, n):
-            if (symbol[arr[i - 1]] > symbol[arr[i]]) :
-                sum = sum - symbol[arr[i]]
+        # print(arr)
+        for i in range(n - 2, -1, -1):
+            # print(i, arr[i])
+            val = arr[i]
+            if (arr[i + 1] > val) :
+                sum = sum - val
             else:
-                sum = sum + symbol[arr[i]]
+                sum = sum + val
             
-        
         return sum
