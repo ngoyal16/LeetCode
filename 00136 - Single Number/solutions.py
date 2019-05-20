@@ -5,12 +5,10 @@ class Solution(object):
         :rtype: int
         """
         
-        num = nums.pop()
-        
-        while True:
-            try:
-                nums.remove(num)
-            except:
-                return num
+        res = 0
+        for num in nums:
+            res ^= num
             
-            num = nums.pop()
+        return res
+        
+        
