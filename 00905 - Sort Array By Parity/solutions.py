@@ -5,13 +5,12 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        oddList = []
-        evenList = []
+        res = []
         
         for num in A:
             if num % 2:
-                oddList.append(num)
+                res.append(num)
             else:
-                evenList.append(num)
+                res.insert(0, num)
         
-        return evenList + oddList
+        return res
