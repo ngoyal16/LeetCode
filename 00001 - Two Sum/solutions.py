@@ -5,5 +5,5 @@ class Solution:
         for idx, num in enumerate(nums):
             if num in temp:
                 return [temp[num], idx]
-            else:
-                temp[target - num] = idx
+            
+            temp[target - num] = idx
