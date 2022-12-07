@@ -1,6 +1,36 @@
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        a = int(a, 2)
-        b = int(b, 2)
+        if a == "0":
+            return b
 
-        return bin(a + b).replace("0b", "")
+        if b == "0":
+            return a
+
+        carry = 0
+        
+        aLen = len(a)
+        bLen = len(b)
+
+        maxLen = max(aLen, bLen)
+
+        a = a.zfill(maxLen)
+        b = b.zfill(maxLen)
+
+        res = []
+
+        while (maxLen > 0):
+            maxLen -= 1
+
+            if a[maxLen] > "0":
+                carry += 1
+
+            if b[maxLen] > "0":
+                carry += 1
+
+            res.append(carry % 2)
+            
+            carry = carry // 2
+
+        res.append(carry)
+        
+        return "".join(map(str, res[::-1])).lstrip("0")
