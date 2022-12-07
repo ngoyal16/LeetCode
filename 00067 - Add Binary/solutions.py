@@ -27,10 +27,10 @@ class Solution:
             if b[maxLen] > "0":
                 carry += 1
 
-            res.append(carry % 2)
+            res.append(str(carry % 2))
             
             carry = carry // 2
 
-        res.append(carry)
+        res.append(str(carry))
         
-        return "".join(map(str, res[::-1])).lstrip("0")
+        return "".join(res[::-1]).lstrip("0")
